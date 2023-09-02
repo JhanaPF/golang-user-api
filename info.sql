@@ -1,8 +1,8 @@
--- Database: books_database
+-- Database: golang-user-api
 
--- DROP DATABASE books_database;
+-- DROP DATABASE golang-user-api;
 
-CREATE DATABASE  test_golang_api
+CREATE DATABASE user_golang_api
   WITH OWNER = root
        ENCODING = 'UTF8'
        TABLESPACE = pg_default

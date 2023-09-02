@@ -1,4 +1,4 @@
-module example/golang-api
+module golang-user-api
 
 go 1.19
 

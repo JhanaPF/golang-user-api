@@ -9,7 +9,7 @@ import (
 	"os"
 
 	"github.com/gin-gonic/gin"
-	_ "github.com/lib/pq"
+	_ "github.com/lib/pq" // Go Postgres driver
 )
 
 type book struct {
@@ -77,21 +77,46 @@ func getCourses(context *gin.Context) {
 
 }
 
+func getLessons(context *gin.Context) {
+
+}
+
+func getQuestions(context *gin.Context) {
+
+}
+
 var db *sql.DB
 
 func init() {
-	db, err := sql.Open("postgres", "user=root password=password dbname=test-golang-api host=localhost port=5432 sslmode=disable")
+	db, err := sql.Open("postgres", "user=root password=password dbname=user-golang-api host=localhost port=5432 sslmode=disable")
 	if err != nil {
 		panic(err)
 	}
 	defer db.Close()
+
+	err = db.Ping()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	//_, err = db.Exec(`
+	//   CREATE TABLE IF NOT EXISTS utilisateurs (
+	//	   id SERIAL PRIMARY KEY,
+	//	   nom VARCHAR(255),
+	//	   prenom VARCHAR(255)
+	//   )
+	//`)
+	//if err != nil {
+	//   log.Fatal(err)
+	//}
 }
 
 func main() {
 	router := gin.Default()
 	router.GET("/courses", getCourses)
-	//router.GET("/lessons", getLessons)
-	//router.GET("/questions", getQuestions)
+	router.GET("/lessons", getLessons)
+	router.GET("/questions", getQuestions)
+
 	router.Run("localhost:8080")
 	port := os.Getenv("PORT")
 	router.Run(fmt.Sprintf("%s %s", ":", port))
