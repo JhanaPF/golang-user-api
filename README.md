@@ -13,8 +13,11 @@ User api for my learning language app
 
 ## Installation
 
-
+Install Golang on your machine ( https://golang.org/dl/ for Windows )
 ```bash
+    sudo apt update
+    sudo apt install golang
+
     git clone https://github.com/JhanaPF/golang-user-api.git
     cd golang-user-api
     go mod download
@@ -35,19 +38,21 @@ On linux:
 ```
 
 Execute sql file:
-psql -U username -d myDataBase -a -f myInsertFile
+```bash
+    psql -U username -d myDataBase -a -f info.sql
+```
 
 Or connect to sql shell to create database:
-sudo -u postgres psql // postgres is superuser
-now you are in sql shell :
-CREATE USER nouvel_utilisateur WITH PASSWORD 'mot_de_passe';
-GRANT ALL PRIVILEGES ON DATABASE ma_base_de_donnees TO nouvel_utilisateur;
-SELECT usename FROM pg_user;
-CREATE DATABASE myDatabase WITH ENCODING 'UTF8';
-\du to check databases list
+```bash
 
-
-
+    sudo -u postgres psql // postgres is superuser
+    now you are in sql shell :
+    CREATE USER nouvel_utilisateur WITH PASSWORD 'mot_de_passe';
+    GRANT ALL PRIVILEGES ON DATABASE ma_base_de_donnees TO nouvel_utilisateur;
+    SELECT usename FROM pg_user;
+    CREATE DATABASE myDatabase WITH ENCODING 'UTF8';
+    \du to check databases list
+```
 
 ## Run Locally
 
@@ -89,4 +94,3 @@ To run this project, you will need to add the following environment variables to
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `id`      | `string` | **Required**. Id of item to fetch |
-
