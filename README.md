@@ -23,7 +23,7 @@ Install Golang on your machine ( https://golang.org/dl/ for Windows )
     go mod download
 ```
 
-#### Postgresql
+### Postgresql
 
 
 Note username and password you created during database installation !
