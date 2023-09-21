@@ -25,11 +25,10 @@ Install Golang on your machine ( https://golang.org/dl/ for Windows )
 
 #### Postgresql
 
-Official documentation : [https://www.postgresql.org/download/](https://www.postgresql.org/download/).
 
-Note username and password !
+Note username and password you created during database installation !
 
-On linux:
+**On linux:**
 ```bash
     sudo apt update
     sudo apt install postgresql-15 
@@ -37,12 +36,15 @@ On linux:
     sudo systemctl start postgresql
 ```
 
-Execute sql file:
+**On Windows:**
+Official documentation : [https://www.postgresql.org/download/](https://www.postgresql.org/download/).
+
+**Execute sql file:**
 ```bash
-    psql -U username -d myDataBase -a -f info.sql
+    psql -U username -d myDataBase -a -f init.sql
 ```
 
-Or connect to sql shell to create database:
+**Or connect to sql shell to create database:**
 ```bash
 
     sudo -u postgres psql // postgres is superuser
@@ -81,16 +83,16 @@ To run this project, you will need to add the following environment variables to
 `DICTIONNARY_API_USERID`
 `DICTIONNARY_API_USERPASSWORD`
 `PORT`
-
+`SECRET_TOKEN_KEY`
 
 ## API Reference
 
 #### Get item
 
 ```http
-  GET /items/${id}
+  GET /history/${userId}
 ```
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of item to fetch |
+| `userId`  | `string` | **Required**.                     |
