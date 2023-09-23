@@ -1,6 +1,6 @@
 -- Database: golang-user-api
 CREATE DATABASE golang_user_api
-  WITH OWNER = root 
+  WITH OWNER = go_user_admin 
   ENCODING = 'UTF8' 
   LIMIT = -1;
 
@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS users (
     password VARCHAR(255) NOT NULL
 );
 
--- Table pour les relations entre utilisateurs
+-- Table pour les amitiés entre utilisateurs
 CREATE TABLE IF NOT EXISTS relationships (
     id SERIAL PRIMARY KEY,
     user_id INT NOT NULL,
@@ -21,16 +21,23 @@ CREATE TABLE IF NOT EXISTS relationships (
     FOREIGN KEY (friend_id) REFERENCES users(id)
 );
 
--- Table pour l'historique des jeux
+-- Table pour l'historique des leçons terminées
 CREATE TABLE IF NOT EXISTS game_history (
     id SERIAL PRIMARY KEY,
-    user_id INT NOT NULL,
+    user_id VARCHAR(24) NOT NULL,  
+    lesson_id VARCHAR(24),         
+    course_id VARCHAR(24),  
+    game_time INT,  
+    score INT,      
+    success_rate DECIMAL(5, 2) 
+    date DATE
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
 -- Table pour les choix de cours
 CREATE TABLE IF NOT EXISTS course_choices (
     id SERIAL PRIMARY KEY,
-    user_id INT NOT NULL,
+    user_id VARCHAR(24) NOT NULL,  
+    date DATE
     FOREIGN KEY (user_id) REFERENCES users(id)
 );

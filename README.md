@@ -21,9 +21,9 @@ Install Golang on your machine ( https://golang.org/dl/ for Windows )
     git clone https://github.com/JhanaPF/golang-user-api.git
     cd golang-user-api
     go mod download
-```
+``` 
 
-### Postgresql
+###  Postgresql
 
 
 Note username and password you created during database installation !
@@ -73,7 +73,6 @@ Official documentation : [https://www.postgresql.org/download/](https://www.post
 Golang
 GIN
 Postgresql
-Redis
 
 ## Environment Variables
 
@@ -87,7 +86,7 @@ To run this project, you will need to add the following environment variables to
 
 ## API Reference
 
-#### Get item
+#### Get player history
 
 ```http
   GET /history/${userId}
